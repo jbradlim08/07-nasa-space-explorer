@@ -196,6 +196,18 @@ button:hover {
 
 .gallery-media {
   position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.gallery-media img {
+  transition: transform 0.35s ease;
+  transform-origin: center;
+}
+
+.gallery-item:hover .gallery-media img,
+.gallery-item:focus-visible .gallery-media img {
+  transform: scale(1.1);
 }
 
 .gallery-video-fallback {
