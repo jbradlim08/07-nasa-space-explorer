@@ -108,6 +108,12 @@ button:hover {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+}
+
+.gallery-item:focus-visible {
+  outline: 3px solid #1f4f8a;
+  outline-offset: 2px;
 }
 
 /* Three columns on wider screens */
@@ -141,4 +147,97 @@ button:hover {
 .placeholder-icon {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+/* Modal overlay */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  width: min(900px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-areas:
+    "image title"
+    "image date"
+    "image explanation";
+  column-gap: 20px;
+  row-gap: 8px;
+  align-items: start;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  font-size: 26px;
+  line-height: 1;
+  background: #f1f1f1;
+  color: #222;
+}
+
+.modal-image {
+  grid-area: image;
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-bottom: 0;
+}
+
+.modal-content h2 {
+  grid-area: title;
+  margin-right: 40px;
+}
+
+.modal-date {
+  grid-area: date;
+  color: #555;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
+.modal-explanation {
+  grid-area: explanation;
+  color: #333;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .modal-content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "title"
+      "date"
+      "explanation";
+  }
+
+  .modal-image {
+    max-height: 45vh;
+  }
 }
