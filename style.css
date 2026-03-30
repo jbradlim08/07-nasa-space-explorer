@@ -66,6 +66,27 @@ h1 {
   padding: 0 20px;
 }
 
+.space-fact {
+  margin: 0 20px 20px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--nasa-border);
+  background: linear-gradient(135deg, #ffffff 0%, #f3f7ff 100%);
+  box-shadow: 0 4px 14px rgba(11, 61, 145, 0.08);
+}
+
+.space-fact h2 {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: 1.1rem;
+  color: var(--nasa-blue);
+  margin-bottom: 8px;
+}
+
+.space-fact p {
+  color: var(--nasa-ink);
+  line-height: 1.5;
+}
+
 /* Inputs and buttons */
 input[type="date"],
 button {
@@ -97,6 +118,11 @@ button:hover {
   .filters {
     flex-direction: row;
     padding: 0;
+  }
+
+  .space-fact {
+    margin-left: 0;
+    margin-right: 0;
   }
   
   input[type="date"],

@@ -2,6 +2,7 @@
 const startInput = document.getElementById('startDate');
 const endInput = document.getElementById('endDate');
 const getImagesButton = document.querySelector('.filters button');
+const spaceFactText = document.getElementById('spaceFactText');
 const gallery = document.getElementById('gallery');
 const imageModal = document.getElementById('imageModal');
 const modalCloseButton = document.getElementById('modalClose');
@@ -13,11 +14,29 @@ const modalExplanation = document.getElementById('modalExplanation');
 const nasaApiKey = 'gFg9csNJS3YMnJBwbM8WVdP1iVGEUIr7EdFB0SDf';
 let currentGalleryItems = [];
 
+const spaceFacts = [
+  'A day on Venus is longer than a year on Venus.',
+  'Neutron stars can spin more than 600 times each second.',
+  'Jupiter has the shortest day of any planet in our solar system.',
+  'The footprints left by Apollo astronauts can last for millions of years on the Moon.',
+  'One million Earths could fit inside the Sun by volume.',
+  'Saturn could float in water because its average density is lower than water.',
+  'Some of the light from distant galaxies started traveling toward Earth before humans existed.',
+  'Mars has the largest volcano in the solar system: Olympus Mons.',
+  'The International Space Station travels around Earth at about 17,500 mph.',
+  'A teaspoon of neutron star material would weigh billions of tons on Earth.'
+];
+
 // Call the setupDateInputs function from dateRange.js
 // This sets up the date pickers to:
 // - Default to a range of 9 days (from 9 days ago to today)
 // - Restrict dates to NASA's image archive (starting from 1995)
 setupDateInputs(startInput, endInput);
+
+function showRandomSpaceFact() {
+  const randomIndex = Math.floor(Math.random() * spaceFacts.length);
+  spaceFactText.textContent = spaceFacts[randomIndex];
+}
 
 function renderMessage(message) {
   gallery.innerHTML = `
@@ -186,6 +205,7 @@ async function getSpaceImages() {
 }
 
 getImagesButton.addEventListener('click', getSpaceImages);
+showRandomSpaceFact();
 
 gallery.addEventListener('click', (event) => {
   const card = event.target.closest('.gallery-item');
