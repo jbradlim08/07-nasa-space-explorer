@@ -78,7 +78,7 @@ async function getSpaceImages() {
     return;
   }
 
-  renderMessage('Loading space images...');
+  renderMessage('🔄 Loading space photos…');
 
   const url = `https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&start_date=${startDate}&end_date=${endDate}`;
 
