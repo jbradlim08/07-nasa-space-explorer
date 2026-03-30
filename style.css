@@ -85,6 +85,25 @@ h1 {
 .space-fact p {
   color: var(--nasa-ink);
   line-height: 1.5;
+  margin-top: 0;
+}
+
+#refreshFactButton {
+  width: auto;
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.space-fact-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.space-fact-text {
+  flex: 1;
 }
 
 /* Inputs and buttons */

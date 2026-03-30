@@ -3,6 +3,7 @@ const startInput = document.getElementById('startDate');
 const endInput = document.getElementById('endDate');
 const getImagesButton = document.querySelector('.filters button');
 const spaceFactText = document.getElementById('spaceFactText');
+const refreshFactButton = document.getElementById('refreshFactButton');
 const gallery = document.getElementById('gallery');
 const imageModal = document.getElementById('imageModal');
 const modalCloseButton = document.getElementById('modalClose');
@@ -180,7 +181,7 @@ async function getSpaceImages() {
     return;
   }
 
-  renderMessage('🔄 Loading space photos…');
+  renderMessage('\u{1F504} Loading space photos...');
 
   const url = `https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&start_date=${startDate}&end_date=${endDate}&thumbs=true`;
 
@@ -205,6 +206,7 @@ async function getSpaceImages() {
 }
 
 getImagesButton.addEventListener('click', getSpaceImages);
+refreshFactButton.addEventListener('click', showRandomSpaceFact);
 showRandomSpaceFact();
 
 gallery.addEventListener('click', (event) => {
