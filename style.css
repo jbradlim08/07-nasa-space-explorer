@@ -26,6 +26,21 @@ body {
   padding: 20px;
 }
 
+body.night-mode {
+  --nasa-blue: #66a3ff;
+  --nasa-blue-dark: #4a89e6;
+  --nasa-red: #ff6b57;
+  --nasa-ink: #e8efff;
+  --nasa-muted: #9fb0d4;
+  --nasa-bg: #060b16;
+  --nasa-surface: #101a2c;
+  --nasa-border: #233452;
+}
+
+body.night-mode {
+  background: radial-gradient(circle at 20% 0%, #162640 0%, #0a1426 45%, #060b16 100%);
+}
+
 /* Centered container */
 .container {
   max-width: 1200px;
@@ -73,6 +88,22 @@ h1 {
   border: 1px solid var(--nasa-border);
   background: linear-gradient(135deg, #ffffff 0%, #f3f7ff 100%);
   box-shadow: 0 4px 14px rgba(11, 61, 145, 0.08);
+}
+
+body.night-mode .space-fact {
+  background: linear-gradient(135deg, #14233d 0%, #0f1a2e 100%);
+  border: 2px solid #3c5f94;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.night-mode .gallery-item,
+body.night-mode .modal-content {
+  border: 2px solid #365785;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+}
+
+body.night-mode .modal {
+  background: rgba(2, 6, 14, 0.82);
 }
 
 .space-fact h2 {
@@ -221,6 +252,11 @@ button:hover {
   font-weight: 600;
 }
 
+body.night-mode .gallery-video-fallback,
+body.night-mode .modal-video-fallback {
+  background: #0a1020;
+}
+
 .media-badge {
   position: absolute;
   top: 10px;
@@ -352,6 +388,40 @@ button:hover {
 
 .modal-video-link:hover {
   text-decoration: underline;
+}
+
+.night-mode-toggle {
+  position: fixed;
+  right: 0px;
+  top: 20%;
+  transform: translateY(-50%);
+  z-index: 1100;
+  width: auto;
+  min-width: 52px;
+  min-height: 52px;
+  padding: 10px 12px;
+  border-radius: 999px 0 0 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #0b3d91;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.night-mode-toggle:hover {
+  background: #072a66;
+}
+
+body.night-mode .night-mode-toggle {
+  border-color: rgba(126, 182, 255, 0.65);
+  background: #17345f;
+  color: #f2f7ff;
+  box-shadow: 0 0 0 1px rgba(102, 163, 255, 0.25), 0 0 16px rgba(102, 163, 255, 0.35);
+}
+
+body.night-mode .night-mode-toggle:hover {
+  background: #20457c;
 }
 
 .modal-content h2 {

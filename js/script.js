@@ -4,6 +4,7 @@ const endInput = document.getElementById('endDate');
 const getImagesButton = document.querySelector('.filters button');
 const spaceFactText = document.getElementById('spaceFactText');
 const refreshFactButton = document.getElementById('refreshFactButton');
+const nightModeToggle = document.getElementById('nightModeToggle');
 const gallery = document.getElementById('gallery');
 const imageModal = document.getElementById('imageModal');
 const modalCloseButton = document.getElementById('modalClose');
@@ -37,6 +38,19 @@ setupDateInputs(startInput, endInput);
 function showRandomSpaceFact() {
   const randomIndex = Math.floor(Math.random() * spaceFacts.length);
   spaceFactText.textContent = spaceFacts[randomIndex];
+}
+
+function applyNightMode(isNightMode) {
+  document.body.classList.toggle('night-mode', isNightMode);
+  nightModeToggle.textContent = isNightMode ? '☀️' : '🌙';
+  nightModeToggle.setAttribute('aria-label', isNightMode ? 'Switch to day mode' : 'Switch to night mode');
+  nightModeToggle.setAttribute('aria-pressed', String(isNightMode));
+}
+
+function toggleNightMode() {
+  const isNightMode = !document.body.classList.contains('night-mode');
+  applyNightMode(isNightMode);
+  localStorage.setItem('nightMode', isNightMode ? 'on' : 'off');
 }
 
 function renderMessage(message) {
@@ -207,7 +221,10 @@ async function getSpaceImages() {
 
 getImagesButton.addEventListener('click', getSpaceImages);
 refreshFactButton.addEventListener('click', showRandomSpaceFact);
+nightModeToggle.addEventListener('click', toggleNightMode);
 showRandomSpaceFact();
+
+applyNightMode(localStorage.getItem('nightMode') === 'on');
 
 gallery.addEventListener('click', (event) => {
   const card = event.target.closest('.gallery-item');
